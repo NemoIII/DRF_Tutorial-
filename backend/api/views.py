@@ -8,7 +8,8 @@ from products.serializers import ProductsSerializer
 @api_view(["POST"])
 def api_home(request, *args, ** kwargs):
   serializer = ProductsSerializer(data=request.data)
-  if serializer.is_valid():
-    print(serializer)
-    data = serializer.data
-  return Response(data)
+  if serializer.is_valid(raise_exception=True):
+    # instance = serializer.save()
+    print(serializer.data)
+    return Response(serializer.data)
+  return Response({"Invalid": "Not good data."}, status=400)

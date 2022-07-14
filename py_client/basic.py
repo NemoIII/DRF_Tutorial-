@@ -9,13 +9,8 @@
 
 import requests
 
-
-# endpoint = "http://httpbin.org/status/200/"
-# endpoint = "http://httpbin.org/"
-# endpoint = "http://httpbin.org/anything"
 endpoint = "http://localhost:8000/api/"
 
-get_response = requests.post(endpoint, json={"title": "Hello world"}) # Here we will emulate a HTTP Request
-# get_response = requests.get(endpoint, json={"query": "Hello world"}) # Here we will emulate a HTTP Request
+get_response = requests.post(endpoint, json={"title": "Abc123", "content": "Hello world"})
 
-# print(get_response.json())
+print(get_response.json())
